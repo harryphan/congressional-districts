@@ -1,16 +1,32 @@
 import React from "react";
 import "./App.css";
-import { Box, Container, Link, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Link,
+  SelectChangeEvent,
+  Typography,
+} from "@mui/material";
 import Copyright from "./Copyright";
 import USMapContainer from "./containers/USMapContainer";
+import MapViewSelector from "./components/MapViewSelector";
+import { MapViews } from "./utils/constants";
 
 function App() {
+  const [mapView, setMapView] = React.useState(MapViews.CONGRESS);
+  const changeMapView = (event: SelectChangeEvent) => {
+    const newMapView = event.target.value;
+    console.log(newMapView);
+    setMapView(newMapView);
+  };
   return (
     <Container>
       <Box height={"10vh"}>
         <Typography variant="h3">US Map</Typography>
       </Box>
-      <Box height={"5vh"}>{/*<MapViewSelector />*/}</Box>
+      <Box height={"5vh"}>
+        <MapViewSelector changeMapView={changeMapView} mapView={mapView} />
+      </Box>
       <Box height={"70vh"} width={"100%"}>
         <USMapContainer />
       </Box>
