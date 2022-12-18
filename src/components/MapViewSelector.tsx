@@ -15,8 +15,8 @@ const MapViewSelector = (props: MapViewSelectorProps) => {
   const { mapView, changeMapView } = props;
   const { BASIC, CONGRESS } = MapViews;
   return (
-    <FormControl variant="standard">
-      <Select defaultValue={mapView} onChange={changeMapView}>
+    <FormControl variant="standard" fullWidth>
+      <Select value={mapView} onChange={changeMapView}>
         <MenuItem value={BASIC}>Basic</MenuItem>
         <MenuItem value={CONGRESS}>Congressional Districts</MenuItem>
       </Select>

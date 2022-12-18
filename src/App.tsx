@@ -16,7 +16,6 @@ function App() {
   const [mapView, setMapView] = React.useState(MapViews.CONGRESS);
   const changeMapView = (event: SelectChangeEvent) => {
     const newMapView = event.target.value;
-    console.log(newMapView);
     setMapView(newMapView);
   };
   return (
@@ -24,7 +23,7 @@ function App() {
       <Box height={"10vh"}>
         <Typography variant="h3">US Map</Typography>
       </Box>
-      <Box height={"5vh"}>
+      <Box height={"5vh"} width={"25%"}>
         <MapViewSelector changeMapView={changeMapView} mapView={mapView} />
       </Box>
       <Box height={"70vh"} width={"100%"}>
