@@ -1,40 +1,40 @@
-import React from "react";
-import statesBoundaries from "../data/states-10m.json";
-import { Geographies, Geography } from "react-simple-maps";
+import congressDistricts from "../data/US-district-current.topo.json";
 import { Tooltip } from "@mui/material";
+import { Geographies, Geography } from "react-simple-maps";
+import React from "react";
 
-interface BasicMapLayerProps {
-  handleStateClick: () => void;
-}
-
-const BasicMapLayer = (props: BasicMapLayerProps) => {
-  const { handleStateClick } = props;
+const CongressCounties = () => {
   return (
-    <Geographies geography={statesBoundaries}>
+    <Geographies geography={congressDistricts}>
       {({ geographies }) =>
-        geographies.map((geo) => {
+        geographies.map((geo, index) => {
+          const { STATE, CONG_DIST } = geo.properties;
           return (
             <Tooltip
-              key={geo.rsmKey}
-              title={geo.properties.name}
+              key={index}
+              title={
+                <div>
+                  <div>State: {STATE}</div>
+                  <div>District: {CONG_DIST}</div>
+                </div>
+              }
               placement={"right-end"}
               arrow
             >
               <Geography
-                stroke="#000"
+                key={geo.rsmKey}
                 geography={geo}
                 fill={"#FFF"}
-                onClick={() => handleStateClick()}
                 style={{
                   default: {
                     stroke: "#000",
-                    strokeWidth: 0.2,
+                    strokeWidth: 0.1,
                     outline: "none",
                   },
                   hover: {
                     fill: "#CFD8DC",
                     stroke: "#607D8B",
-                    strokeWidth: 1,
+                    strokeWidth: 0.1,
                     outline: "none",
                   },
                 }}
@@ -46,4 +46,5 @@ const BasicMapLayer = (props: BasicMapLayerProps) => {
     </Geographies>
   );
 };
-export default BasicMapLayer;
+
+export default CongressCounties;
