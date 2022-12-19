@@ -2,8 +2,14 @@ import { ComposableMap, ZoomableGroup } from "react-simple-maps";
 import BasicMapLayer from "./BasicMapLayer";
 import type { Point } from "react-simple-maps";
 import CongressionalDistricts from "./CongressionalDistricts";
+import { MapViews } from "../utils/constants";
 
-const USMap = () => {
+interface USMapProps {
+  mapView: string;
+}
+
+const USMap = (props: USMapProps) => {
+  const { mapView } = props;
   const center: Point = [0, 0];
   const mapParams = {
     zoom: 1,
@@ -15,7 +21,14 @@ const USMap = () => {
   };
   const { zoom } = mapParams;
   const handleStateClick = () => {};
-
+  const layer = () => {
+    switch (mapView) {
+      case MapViews.CONGRESS:
+        return <CongressionalDistricts />;
+      default:
+        return <BasicMapLayer handleStateClick={handleStateClick} />;
+    }
+  };
   return (
     <ComposableMap
       data-tip=""
@@ -27,8 +40,7 @@ const USMap = () => {
         zoom={zoom}
         // onMoveEnd={(event, zoomEvent) => handleMove(event, focusedStateId)}
       >
-        <BasicMapLayer handleStateClick={handleStateClick} />
-        <CongressionalDistricts />
+        {layer()}
         {/*<Layers mapView={mapView} focusedStateId={focusedStateId} />*/}
 
         {/*<VotingLayer votingDataContext={votingDataContext} focusedStateId={focusedStateId} setTooltip={setTooltip} handleStateClick={handleStateClick} zoom={zoom}/>*/}
