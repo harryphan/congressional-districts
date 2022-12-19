@@ -1,8 +1,8 @@
-import { ComposableMap, ZoomableGroup } from "react-simple-maps";
-import BasicMapLayer from "./BasicMapLayer";
-import type { Point } from "react-simple-maps";
-import CongressionalDistricts from "./CongressionalDistricts";
-import { MapViews } from "../utils/constants";
+import { ComposableMap, ZoomableGroup } from 'react-simple-maps';
+import BasicMapLayer from './BasicMapLayer';
+import type { Point } from 'react-simple-maps';
+import CongressionalDistricts from './CongressionalDistricts';
+import { MapViews } from '../utils/constants';
 
 interface USMapProps {
   mapView: string;
@@ -17,7 +17,7 @@ const USMap = (props: USMapProps) => {
     // center:[-83.43523233606125, 32.63933616159129],
     // zoom:4,
     // focusedStateId:13,
-    tooltip: "",
+    tooltip: '',
   };
   const { zoom } = mapParams;
   const handleStateClick = () => {};
@@ -33,7 +33,7 @@ const USMap = (props: USMapProps) => {
     <ComposableMap
       data-tip=""
       projection="geoAlbersUsa"
-      style={{ border: "1px black solid", height: "100%", width: "100%" }}
+      style={{ border: '1px black solid', height: '100%', width: '100%' }}
     >
       <ZoomableGroup
         center={center}

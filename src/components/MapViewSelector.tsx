@@ -3,9 +3,9 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
-} from "@mui/material";
-import { MapViews } from "../utils/constants";
-import React from "react";
+} from '@mui/material';
+import { MapViews } from '../utils/constants';
+import React from 'react';
 interface MapViewSelectorProps {
   changeMapView: (event: SelectChangeEvent) => void;
   mapView: string;

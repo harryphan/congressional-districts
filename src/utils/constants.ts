@@ -1,4 +1,4 @@
 export const MapViews = {
-  BASIC: "BASIC",
-  CONGRESS: "CONGRESS",
+  BASIC: 'BASIC',
+  CONGRESS: 'CONGRESS',
 };

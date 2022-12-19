@@ -1,7 +1,7 @@
-import congressDistricts from "../data/US-district-current.topo.json";
-import { Tooltip } from "@mui/material";
-import { Geographies, Geography } from "react-simple-maps";
-import React from "react";
+import congressDistricts from '../data/US-district-current.topo.json';
+import { Tooltip } from '@mui/material';
+import { Geographies, Geography } from 'react-simple-maps';
+import React from 'react';
 
 const CongressCounties = () => {
   return (
@@ -18,24 +18,24 @@ const CongressCounties = () => {
                   <div>District: {CONG_DIST}</div>
                 </div>
               }
-              placement={"right-end"}
+              placement={'right-end'}
               arrow
             >
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill={"#FFF"}
+                fill={'#FFF'}
                 style={{
                   default: {
-                    stroke: "#000",
+                    stroke: '#000',
                     strokeWidth: 0.1,
-                    outline: "none",
+                    outline: 'none',
                   },
                   hover: {
-                    fill: "#CFD8DC",
-                    stroke: "#607D8B",
+                    fill: '#CFD8DC',
+                    stroke: '#607D8B',
                     strokeWidth: 0.1,
-                    outline: "none",
+                    outline: 'none',
                   },
                 }}
               />

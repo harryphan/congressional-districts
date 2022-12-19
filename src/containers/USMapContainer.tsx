@@ -1,15 +1,15 @@
-import USMap from "../components/USMap";
-import React from "react";
+import USMap from '../components/USMap';
+import React from 'react';
 import {
   Box,
   Container,
   Link,
   SelectChangeEvent,
   Typography,
-} from "@mui/material";
-import MapViewSelector from "../components/MapViewSelector";
-import Copyright from "../Copyright";
-import { MapViews } from "../utils/constants";
+} from '@mui/material';
+import MapViewSelector from '../components/MapViewSelector';
+import Copyright from '../Copyright';
+import { MapViews } from '../utils/constants';
 
 const USMapContainer = () => {
   const [mapView, setMapView] = React.useState(MapViews.CONGRESS);
@@ -19,23 +19,23 @@ const USMapContainer = () => {
   };
   return (
     <Container>
-      <Box height={"10vh"}>
+      <Box height={'10vh'}>
         <Typography variant="h3">US Map</Typography>
       </Box>
-      <Box height={"5vh"} width={"25%"}>
+      <Box height={'5vh'} width={'25%'}>
         <MapViewSelector changeMapView={changeMapView} mapView={mapView} />
       </Box>
-      <Box height={"70vh"} width={"100%"}>
+      <Box height={'70vh'} width={'100%'}>
         <USMap mapView={mapView} />
       </Box>
-      <Box height={"10vh"}>
+      <Box height={'10vh'}>
         <Typography variant="caption" gutterBottom>
-          Source code:{" "}
+          Source code:{' '}
           <Link href="https://github.com/harryphan/us-district-map">
             Github
           </Link>
           <br />
-          Data sources:{" "}
+          Data sources:{' '}
           <Link href="https://www.cnn.com/election/2020/results/president?iid=politics_election_national_map">
             CNN
           </Link>
@@ -49,7 +49,7 @@ const USMapContainer = () => {
           </Link>
         </Typography>
       </Box>
-      <Box height={"5vh"}>
+      <Box height={'5vh'}>
         <Copyright />
       </Box>
     </Container>

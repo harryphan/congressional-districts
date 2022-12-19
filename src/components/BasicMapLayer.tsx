@@ -1,7 +1,7 @@
-import React from "react";
-import statesBoundaries from "../data/states-10m.json";
-import { Geographies, Geography } from "react-simple-maps";
-import { Tooltip } from "@mui/material";
+import React from 'react';
+import statesBoundaries from '../data/states-10m.json';
+import { Geographies, Geography } from 'react-simple-maps';
+import { Tooltip } from '@mui/material';
 
 interface BasicMapLayerProps {
   handleStateClick: () => void;
@@ -17,25 +17,25 @@ const BasicMapLayer = (props: BasicMapLayerProps) => {
             <Tooltip
               key={geo.rsmKey}
               title={geo.properties.name}
-              placement={"right-end"}
+              placement={'right-end'}
               arrow
             >
               <Geography
                 stroke="#000"
                 geography={geo}
-                fill={"#FFF"}
+                fill={'#FFF'}
                 onClick={() => handleStateClick()}
                 style={{
                   default: {
-                    stroke: "#000",
+                    stroke: '#000',
                     strokeWidth: 0.2,
-                    outline: "none",
+                    outline: 'none',
                   },
                   hover: {
-                    fill: "#CFD8DC",
-                    stroke: "#607D8B",
+                    fill: '#CFD8DC',
+                    stroke: '#607D8B',
                     strokeWidth: 1,
-                    outline: "none",
+                    outline: 'none',
                   },
                 }}
               />
