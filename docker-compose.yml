@@ -1,0 +1,18 @@
+version: "3.9"
+
+networks:
+  us-network:
+    driver: bridge
+    name: us-network
+
+services:
+  us-map-app:
+    build: .
+    hostname: us-map-app
+    ports:
+      - "8010:3000"
+    networks:
+      - us-network
+    volumes:
+      - ./:/app
+    command: "yarn start"
